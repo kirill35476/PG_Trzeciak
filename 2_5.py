@@ -1,5 +1,6 @@
 import pygame
 from all_colors import *
+from pygame.time import Clock
 from random import *
 pygame.init()
 
@@ -32,21 +33,18 @@ rects[-1].bottomright = (width_screen, height_screen)
 rects.append(pygame.Rect(0, 0, width, height))
 rects[-1].center = (width_screen//2, height_screen//2)
 
-for rect in rects:
-    pygame.draw.rect(screen, choice(COLORS), rect)
-    pygame.time.delay(randint(200, 200))
 
-
-pygame.display.flip()
-clock = pygame.time.Clock()
-timer = 0
+clock = Clock()
 running = True
 while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
 
-    screen.fill(BACKGROUND)
-    clock.tick()
+    for rect in rects:
+        pygame.draw.rect(screen, choice(COLORS), rect)
+
+    pygame.display.flip()
+    clock.tick(5)
 
 pygame.quit()
