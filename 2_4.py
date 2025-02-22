@@ -1,6 +1,5 @@
 import pygame
 from random import choice
-from pygame.time import Clock
 from all_colors import *
 
 pygame.init()
@@ -21,7 +20,7 @@ COLORS = [BLACK, WHITE, RED, GREEN, YELLOW, CYAN, MAGENTA, GRAY,
 initial_size = 200
 
 running = True
-clock = Clock()
+clock = pygame.time.Clock()
 
 while running:
     for event in pygame.event.get():

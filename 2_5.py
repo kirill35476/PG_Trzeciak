@@ -1,6 +1,5 @@
 import pygame
 from all_colors import *
-from pygame.time import Clock
 from random import *
 pygame.init()
 
@@ -34,7 +33,7 @@ rects.append(pygame.Rect(0, 0, width, height))
 rects[-1].center = (width_screen//2, height_screen//2)
 
 
-clock = Clock()
+clock = pygame.time.Clock()
 running = True
 while running:
     for event in pygame.event.get():
