@@ -6,6 +6,8 @@ screen = pygame.display.set_mode(size)
 pygame.display.set_caption("новая игра")
 BACKGROUND = (255,255,0)
 screen.fill(BACKGROUND)
+bacgraound_image = pygame.image.load('resources/небо.png')
+
 
 my_font = pygame.font.SysFont('Arial',32)
 my_text = my_font.render('Потрачено!',True,(0,0,0),(BACKGROUND))
