@@ -45,7 +45,6 @@ FPS = 60
 clock = pygame.time.Clock()
 running = True
 
-# Шрифт для отображения текста
 font = pygame.font.Font(None, 36)
 
 def draw_text(text, x, y, color):
@@ -59,36 +58,31 @@ while running:
 
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_SPACE and ammo > 0:
-                # Проверяем, нет ли уже активных снарядов
-                if not missiles:  # Если список снарядов пуст
-                    # Создаем новый снаряд
+                if not missiles:
                     new_missile = pygame.Rect(50, 50, 10, 10)
                     new_missile.left = screen_rect.left
                     new_missile.centery = screen_rect.centery
-                    missiles.append(new_missile)  # Добавляем снаряд в список
-                    ammo -= 1  # Уменьшаем количество снарядов
+                    missiles.append(new_missile)
+                    ammo -= 1
                     pygame.mixer.music.stop()
                     shot_sound.play()
 
     if ship_alive:
         ship.move_ip(0, ship_speed_y)
         if ship.top < screen_rect.top or ship.bottom > screen_rect.bottom:
-            ship_speed_y = -ship_speed_y  # Меняем направление движения
+            ship_speed_y = -ship_speed_y
 
-    # Обновляем положение всех снарядов
-    for missile in missiles[:]:  # Используем срез [:] для безопасного удаления элементов
+    for missile in missiles[:]:
         missile.move_ip(missile_speed_x, 0)
 
-        # Если снаряд выходит за пределы экрана
         if not missile.colliderect(screen_rect):
-            missiles.remove(missile)  # Удаляем снаряд из списка
+            missiles.remove(missile)
             pygame.mixer.music.stop()
             fail_sound.play()
 
-        # Если снаряд попадает в корабль
         if ship_alive and missile.colliderect(ship):
-            missiles.remove(missile)  # Удаляем снаряд из списка
-            hp_ship -= 1  # Уменьшаем количество жизней корабля
+            missiles.remove(missile)
+            hp_ship -= 1
             if hp_ship <= 0:
                 ship_alive = False
                 background_color = GREEN
