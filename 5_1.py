@@ -6,7 +6,7 @@ pygame.init()
 from all_colors import *
 
 # Инициализация звуков
-bounce_sound = pygame.mixer.Sound('resources/win.mp3')  # Звук отскока
+bounce_sound = pygame.mixer.Sound('resources/otskok-myacha.mp3')  # Звук отскока
 score_sound = pygame.mixer.Sound('resources/fail.mp3')  # Звук забития гола
 
 
@@ -124,6 +124,7 @@ while running:
     # Отскок от стен
     if ball_rect.top <= 0 or ball_rect.bottom >= SCREEN_HEIGHT:
         BALL_SPEED_Y *= -1
+
 
 
     # Отскок от ракеток
