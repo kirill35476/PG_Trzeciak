@@ -5,9 +5,9 @@ import random
 pygame.init()
 from all_colors import *
 
-# Инициализация звуков
-bounce_sound = pygame.mixer.Sound('resources/otskok-myacha.mp3')  # Звук отскока
-score_sound = pygame.mixer.Sound('resources/fail.mp3')  # Звук забития гола
+
+bounce_sound = pygame.mixer.Sound('resources/otskok-myacha.mp3')
+score_sound = pygame.mixer.Sound('resources/fail.mp3')
 
 
 SCREEN_WIDTH = 1200
@@ -17,7 +17,6 @@ pygame.display.set_caption("Pong - Макс. скорость: 30")
 BACKGROUND = (255, 255, 255)
 screen.fill(BLACK)
 
-# Настройки игры
 PADDLE_WIDTH = 25
 PADDLE_HEIGHT = 100
 PADDLE_SPEED = 10
@@ -26,9 +25,8 @@ BALL_SIZE = 10
 BALL_SPEED_X = 5
 BALL_SPEED_Y = 5
 MAX_BALL_SPEED = 30
-current_speed = 5  # Отображаемая скорость (целое число)
+current_speed = 5
 
-# Создание объектов
 paddle1_rect = pygame.Rect(0, SCREEN_HEIGHT // 2 - PADDLE_HEIGHT // 2, PADDLE_WIDTH, PADDLE_HEIGHT)
 paddle2_rect = pygame.Rect(SCREEN_WIDTH - PADDLE_WIDTH, SCREEN_HEIGHT // 2 - PADDLE_HEIGHT // 2, PADDLE_WIDTH,
                            PADDLE_HEIGHT)
