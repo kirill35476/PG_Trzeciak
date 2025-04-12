@@ -46,6 +46,8 @@ FPS = 60
 clock = pygame.time.Clock()
 running = True
 while running:
+    mouse_pos = pygame.mouse.get_pos()
+    closest_point = get()
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
