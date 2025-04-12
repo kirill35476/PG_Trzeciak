@@ -47,7 +47,7 @@ clock = pygame.time.Clock()
 running = True
 while running:
     mouse_pos = pygame.mouse.get_pos()
-    closest_point = get()
+    closest_point = get_closest_point(mouse_pos)
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
@@ -75,7 +75,7 @@ while running:
         pygame.draw.aaline(screen, COLORS,points[-1],mouse_pos, 3)
 
     if closest_point:
-        pygame.draw.cicrle(screen,RED,closest_point,RADIUS,1)
+        pygame.draw.circle(screen,RED,closest_point,RADIUS,1)
 
     pygame.display.flip()
     clock.tick(FPS)
