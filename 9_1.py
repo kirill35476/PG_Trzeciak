@@ -89,3 +89,5 @@ while running:
     clock.tick(FPS)
 
 pygame.quit()
+
+# на правую мышку рисует квадраты на пробел заливка
