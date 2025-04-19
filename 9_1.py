@@ -35,7 +35,7 @@ def draw_palette():
     pygame.draw.rect(palette, BORDER_COLOR,border_rect,width = 3)
     screen.blit(palette,palette_rect.topleft)
 
-
+dragging_palette = False
 
 FPS = 60
 clock = pygame.time.Clock()
@@ -44,6 +44,19 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
+
+        elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 3:
+            if palette_rect.collidepoint(event.pos):
+                dragging_palette = True
+                offset = (event.pos[0] - palette_rect.left,
+                          event.pos[1] - palette_rect.top)
+                print('')
+            else:
+                dragging_palette = False
+        elif event.type == pygame.MOUSEBUTTONUP and event.button == 3:
+            print('')
+            dragging_palette = False
+
 
 
     mouse_pos = pygame.mouse.get_pos()
@@ -63,9 +76,15 @@ while running:
         else:
             pygame.draw.circle(canvas, brush_color, mouse_pos, brush_width)
 
-    draw_palette()
+    if dragging_palette:
+        new_pos = (mouse_pos[0] - offset[0],
+                    mouse_pos[1] - offset[1])
+        palette_rect.topleft = new_pos
+
+
+
     screen.blit(canvas,(0,0))
-    screen.blit(palette,(0,0))
+    draw_palette()
     pygame.display.flip()
     clock.tick(FPS)
 
