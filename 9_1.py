@@ -5,7 +5,7 @@ pygame.init()
 
 size = (800, 600)
 screen = pygame.display.set_mode(size)
-pygame.display.set_caption("Рисовалка с прямоугольниками")
+pygame.display.set_caption("Рисовать с прямоугольниками")
 BACKGROUND = (255, 255, 255)
 brush_color = (0, 0, 0)
 brush_width = 5
@@ -16,7 +16,7 @@ CUR_INDEX = 0
 canvas = pygame.Surface(screen.get_size())
 canvas.fill(BACKGROUND)
 
-COLORS = [WHITE, BLACK, RED, GREEN, YELLOW, CYAN, MAGENTA, GRAY,
+COLORS = [BLACK, WHITE, RED, GREEN, YELLOW, CYAN, MAGENTA, GRAY,
           ORANGE, PINK, BROWN, PURPLE, LIME, NAVY, OLIVE, MAROON, TEAL, COLD]
 
 size = 50
@@ -102,16 +102,13 @@ while running:
     mouse_pos = pygame.mouse.get_pos()
     mouse_pressed = pygame.mouse.get_pressed()
 
-
     if mouse_pressed[0] and not palette_rect.collidepoint(mouse_pos):
         pygame.draw.circle(canvas, brush_color, mouse_pos, brush_width)
-
 
     if dragging_palette:
         new_pos = (mouse_pos[0] - offset[0],
                    mouse_pos[1] - offset[1])
         palette_rect.topleft = new_pos
-
 
     screen.blit(canvas, (0, 0))
     if drawing_rect and rect_start_pos:
