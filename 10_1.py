@@ -44,7 +44,7 @@ for i in range(ROWS):
 origin_tiles = tiles.copy()
 random.shuffle(tiles)
 
-# Игровые переменные
+
 selected = None
 swaps = 0
 completed = False
@@ -93,7 +93,6 @@ while running:
 
                 if x <= mouse_x <= x + TILE_WIDTH and y <= mouse_y <= y + TILE_HEIGHT:
                     if selected is not None and selected != i:
-                        # Меняем плитки местами
                         tiles[i], tiles[selected] = tiles[selected], tiles[i]
                         selected = None
                         swaps += 1
@@ -102,7 +101,6 @@ while running:
                         selected = None
                     else:
                         selected = i
-
 
     screen.fill(BACKGROUND)
     draw_tiles()
