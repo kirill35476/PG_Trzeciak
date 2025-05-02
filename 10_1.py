@@ -8,13 +8,13 @@ def draw_tiles():
         tile = tiles[i]
         row = i // ROWS
         col = i % COLS
-        x = col * (TILE_WIDTH  + MARGIN)+MARGIN
-        y = row * (TITLE_HEIGHT +  MARGIN)+MARGIN
+        x = col * (TILE_WIDTH + MARGIN)+MARGIN
+        y = row * (TITLE_HEIGHT + MARGIN)+MARGIN
 
         screen.blit(tile,(x,y))
 
 
-SCREEN_WIDTH = 1000
+SCREEN_WIDTH = 1200
 SCREEN_HEIGHT = 800
 ROWS = 3
 COLS = 3
